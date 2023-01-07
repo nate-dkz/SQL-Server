@@ -6,6 +6,5 @@ As I learn new queries, I will add them to this repository so that it can serve 
 By continuously adding to this repository, I hope to create a valuable resource that I can use to streamline my work and increase my productivity.
 
 Feel free to browse through and use any of the queries that you find useful. If you have any questions or suggestions, don't hesitate to contact me.
-
 # References
 [Queries.md](https://github.com/nate-dkz/MacOS/blob/main/Commands.md)
