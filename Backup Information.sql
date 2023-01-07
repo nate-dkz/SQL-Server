@@ -1,5 +1,7 @@
-DECLARE @dbname sysname
-SET @dbname = 'Northwind'
+DECLARE 
+  @dbname sysname
+SET 
+  @dbname = 'Northwind'
 SELECT
   bup.user_name AS [User],
   bup.database_name AS [Database],
@@ -10,11 +12,15 @@ SELECT
   + CAST((CAST(DATEDIFF(s, bup.backup_start_date, bup.backup_finish_date) AS int))/60 AS varchar)+ ' minutes, '
   + CAST((CAST(DATEDIFF(s, bup.backup_start_date, bup.backup_finish_date) AS int))%60 AS varchar)+ ' seconds'
   AS [Total Time]
-FROM msdb.dbo.backupset AS bup
-WHERE bup.backup_set_id IN
-  (SELECT MAX(backup_set_id)
-   FROM msdb.dbo.backupset
-   WHERE database_name = ISNULL(@dbname, database_name)
-   AND type = 'D'
-   GROUP BY database_name)
-AND bup.database_name IN (SELECT name FROM master.dbo.sysdatabases);
+FROM 
+  msdb.dbo.backupset AS bup
+WHERE 
+  bup.backup_set_id IN
+    (SELECT MAX(backup_set_id)
+    FROM msdb.dbo.backupset
+    WHERE database_name = ISNULL(@dbname, database_name)
+    AND type = 'D'
+    GROUP BY database_name)
+AND 
+  bup.database_name IN 
+    (SELECT name FROM master.dbo.sysdatabases);
