@@ -1371,6 +1371,4 @@ SELECT @Dictionary = @Dictionary + name + CHAR(10)
 FROM dictionary;
 PRINT @Dictionary;
 ```
-
-
 </details>
