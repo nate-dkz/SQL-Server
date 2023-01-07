@@ -1097,6 +1097,14 @@ GO
 CREATE DATABASE TestDB;
 ```
 
+BACKUP DB.
+```sql
+BACKUP DATABASE [TestDB] TO  
+DISK = N'E:\\Backups\\TestDB.bak' 
+WITH NOFORMAT, INIT,  NAME = N'TestDB Full Backup', 
+SKIP, NOREWIND, NOUNLOAD, COMPRESSION,  STATS = 10;
+```
+
 CREATE a table.
 ```sql
 USE TestDB;
