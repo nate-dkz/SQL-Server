@@ -1348,19 +1348,19 @@ SELECT @FirstName AS Firstname, @LastName AS Lastname;
 Return the output of variables using the PRINT statement.
 ```sql
 SET NOCOUNT ON -- Removes the row count message
-DECLARE @DateSent DATETIME
-DECLARE @InboundEmail INT
-DECLARE @OutboundEmail INT
-DECLARE @TotalRequests INT
+DECLARE @DateSent DATETIME;
+DECLARE @InboundEmail INT;
+DECLARE @OutboundEmail INT;
+DECLARE @TotalRequests INT;
 
-SET @DateSent = '2020-01-12 08:00'
-SET @InboundEmail = (SELECT COUNT(*) FROM queuedNotification WHERE direction = 1)
-SET @OutboundEmail = (SELECT COUNT(*) FROM queuedNotification WHERE direction = 0)
-SET @TotalRequests = (SELECT COUNT(*) FROM request)
+SET @DateSent = '2020-01-12 08:00';
+SET @InboundEmail = (SELECT COUNT(*) FROM queuedNotification WHERE direction = 1);
+SET @OutboundEmail = (SELECT COUNT(*) FROM queuedNotification WHERE direction = 0);
+SET @TotalRequests = (SELECT COUNT(*) FROM request);
 
-PRINT 'Total Requests in the system: ' + CAST(@TotalRequests AS VARCHAR(MAX)) -- Casts from INT to VARCHAR
-PRINT 'Total Inbound Emails sent: ' + CAST(@InboundEmail AS VARCHAR(MAX))
-PRINT 'Total Outbound Emails sent: ' + CAST(@OutboundEmail AS VARCHAR(MAX))
+PRINT 'Total Requests in the system: ' + CAST(@TotalRequests AS VARCHAR(MAX));-- Casts from INT to VARCHAR
+PRINT 'Total Inbound Emails sent: ' + CAST(@InboundEmail AS VARCHAR(MAX));
+PRINT 'Total Outbound Emails sent: ' + CAST(@OutboundEmail AS VARCHAR(MAX));
 ```
 
 Output variable in a comma separated list.
